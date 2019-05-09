@@ -1,7 +1,6 @@
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,7 +29,6 @@ public class mainMenuPanel extends JPanel{
 	Image backGroundImage;
 	
 	mainMenuButtonListener buttonListener;
-	
 	
 	final int HEIGHT = 1080;
 	final int WIDTH = 1920;
@@ -82,7 +80,7 @@ public class mainMenuPanel extends JPanel{
 		exit.setBackground(Color.RED);
 		this.add(exit);
 
-		bgImage = new JLabel(new ImageIcon(getClass().getResource("/images/deneme.png")));	
+		bgImage = new JLabel(new ImageIcon(getClass().getResource("/images/background.jpg")));	
 		bgImage.setBounds(0, 0, WIDTH, HEIGHT);
 		this.add(bgImage);
 		
@@ -101,14 +99,9 @@ public class mainMenuPanel extends JPanel{
 				new creditsPanel(currentFrame);
 			} else if(e.getSource() == exit)
 				currentFrame.dispose();
-			
 		}
 		
 	}
 	
-	@Override
-	public void paint(Graphics g) {
-		super.paint(g);
-	}
 
 }

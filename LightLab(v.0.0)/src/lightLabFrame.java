@@ -1,7 +1,5 @@
 import java.awt.Color;
-
 import javax.swing.JFrame;
-
 
 public class lightLabFrame extends JFrame{
 
@@ -23,7 +21,7 @@ public class lightLabFrame extends JFrame{
 		gameFrame.setResizable(false);
 		gameFrame.setVisible( true );
 		
-		mainMenuPanel menuPanel = new mainMenuPanel(gameFrame);
+		new mainMenuPanel(gameFrame);
 
 		
 	}

@@ -2,20 +2,16 @@
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.MouseInfo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import blackBoxGame.*;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -68,6 +64,13 @@ public class playGamePanel extends JPanel{
 		this.removeAll();
 		this.setBounds(0, 0, WIDTH, HEIGHT);
 		currentFrame.getContentPane().setBackground(Color.MAGENTA);
+		
+		//Adding the frame info on top for user
+		menuTitle = new JLabel ("Play Game");
+		menuTitle.setFont(new Font("Delta Ray", Font.PLAIN, FONT_SIZE / SIZE_ADJUSTMENT_RATE));
+		menuTitle.setBounds(DISTANCE_BETWEEN_BUTTONS/ SIZE_ADJUSTMENT_RATE, DISTANCE_BETWEEN_BUTTONS/ SIZE_ADJUSTMENT_RATE - 50, 
+				FONT_SIZE * FONT_SIZE_ADJUSTMENT, FONT_SIZE* FONT_SIZE_ADJUSTMENT);		
+		this.add(menuTitle);
 		
 		//Adding Black Box option and labels
 		blackBoxLabel = new JLabel("Try to guess what's inside?");
@@ -141,19 +144,11 @@ public class playGamePanel extends JPanel{
 		levelEditorButton.addActionListener(new playGameButtonListener());
 		this.add(levelEditorButton);
 		
-		//Adding the frame info on top for user
-		menuTitle = new JLabel ("Play Game");
-		menuTitle.setFont(new Font("Delta Ray", Font.PLAIN, FONT_SIZE / SIZE_ADJUSTMENT_RATE));
-		menuTitle.setBounds(DISTANCE_BETWEEN_BUTTONS/ SIZE_ADJUSTMENT_RATE, DISTANCE_BETWEEN_BUTTONS/ SIZE_ADJUSTMENT_RATE - 50, 
-				FONT_SIZE * FONT_SIZE_ADJUSTMENT, FONT_SIZE* FONT_SIZE_ADJUSTMENT);		
-		this.add(menuTitle);
-		
 		backButton = new JButton(" < Back");
 		backButton.setBounds(WIDTH - 150, 50, 100, 50);
 		backButton.setBackground(Color.WHITE);
 		backButton.addActionListener(new backButtonListener());
 		this.add(backButton);
-		
 		
 		singlePlayerButton = new JButton("Single Player");
 		singlePlayerButton.setBounds(opticSteeringButton.getX(), opticSteeringButton.getY() + BUTTON_HEIGHT, BUTTON_WIDTH / 2, BUTTON_HEIGHT);
@@ -168,7 +163,6 @@ public class playGamePanel extends JPanel{
 	
 	
 	class dropDownListener extends MouseAdapter {
-		
 		
 		@Override
 		public void mouseEntered(MouseEvent e) {
